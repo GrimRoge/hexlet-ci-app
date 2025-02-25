@@ -1,0 +1,29 @@
+name: Setup Test Lint Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+
+jobs:
+  setup-test-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: setup project
+        uses: make setup
+
+      - name: run test
+        run: make test
+
+      - name: run linter
+        run: make lint
+        
+      - name: setup project
+        uses: make setup
