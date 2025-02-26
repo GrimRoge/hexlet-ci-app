@@ -25,5 +25,3 @@ jobs:
       - name: run linter
         run: make lint
         
-      - name: setup project
-        uses: make setup
